@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="Mandar " onclick="mandar()">
+    <input type="button" value="Connectar " onclick="c()">
+    <script>
+    setInterval(() => {
+    mandar()
+}, 30*1000);
+function mandar() {
+    let data={
+        phone:"50497896210",
+        body:"Te quiero Jackie 💛"
+    }
+    const url='http://192.168.0.9:3000/w/m'
+         fetch(url, {
+    method: 'POST', // or 'PUT'
+    body: JSON.stringify(data), // data can be `string` or {object}!
+    headers:{
+      'Content-Type': 'application/json'
+    }
+  }).then(res => res.json())
+  .catch(error => console.error('Error:', error))
+  .then(response =>t(response));    
+}
+function c() {
+    let data={
+    l:'1'
+    }
+    const url='http://192.168.0.9:3000/w/c'
+         fetch(url, {
+    method: 'POST', // or 'PUT'
+    body: JSON.stringify(data), // data can be `string` or {object}!
+    headers:{
+      'Content-Type': 'application/json'
+    }
+  }).then(res => res.json())
+  .catch(error => console.error('Error:', error))
+  .then(response =>t(response)); 
+}
+    </script>
+</body>
+</html>
